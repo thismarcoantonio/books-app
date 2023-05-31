@@ -1,18 +1,17 @@
 from flask import Flask, render_template
 from .database import init_db
+from .routes.auth import bp as auth_bp
+from .routes.views import bp as views_bp
 
 
 def create_app():
     app = Flask(__name__, instance_relative_config=True)
 
+    # Database setup
     init_db(app)
 
-    @app.get("/")
-    def index_get():
-        return render_template("index.html")
-
-    @app.get("/login")
-    def login_get():
-        return render_template("login.html")
+    # Blueprint registrations
+    app.register_blueprint(auth_bp)
+    app.register_blueprint(views_bp)
 
     return app

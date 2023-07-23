@@ -10,6 +10,7 @@ class BaseModel(peewee.Model):
 
 class Author(BaseModel):
     name = peewee.CharField(unique=True)
+    password = peewee.CharField()
 
 
 class Book(BaseModel):

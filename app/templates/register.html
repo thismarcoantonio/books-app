@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
-Books
+<h1>Books</h1>
+<h2>Create account</h2>
 
 {% with errors = get_flashed_messages() %}
   {% if errors %}
@@ -15,6 +16,6 @@ Books
 <form method="POST">
   <input type="text" name="username" placeholder="Username" />
   <input type="password" name="password" placeholder="Password" />
-  <button type="submit">Submit</button>
+  <button type="submit">Create</button>
 </form>
 {% endblock %}

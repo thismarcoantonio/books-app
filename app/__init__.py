@@ -6,6 +6,7 @@ from .routes.views import bp as views_bp
 
 def create_app():
     app = Flask(__name__, instance_relative_config=True)
+    app.config.from_mapping(SECRET_KEY="dev")
 
     # Database setup
     init_db(app)
